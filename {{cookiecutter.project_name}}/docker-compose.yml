@@ -1,0 +1,27 @@
+services:
+  python_data:
+    container_name: ${python_container_name}
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes: 
+      - vol:/app/
+    networks: 
+      - netw
+
+{% if cookiecutter.include_minio == "yes" %}
+{% include "docker/optional/minio.yml" %}
+{% endif %}
+
+{% if cookiecutter.include_postgres == "yes" %}
+{% include "docker/optional/postgres.yml" %}
+{% endif %}
+
+
+networks: 
+  netw:
+    name: ${network}
+
+volumes: 
+  vol:
+    name: ${volume}
