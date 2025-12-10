@@ -10,7 +10,7 @@ pycryptodome==3.23.0
 typing_extensions==4.15.0
 urllib3==2.6.1
 {% endif %}
-{% if cookiecutter.include_minio == "yes" %}
+{% if cookiecutter.include_postgres == "yes" %}
 psycopg==3.3.2
 psycopg-binary==3.3.2
 psycopg-pool==3.3.0
