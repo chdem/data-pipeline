@@ -9,9 +9,6 @@ PROJECT_DIR = os.getcwd()
 include_minio = "{{cookiecutter.include_minio}}"
 include_postgres = "{{cookiecutter.include_postgres}}"
 
-print(include_minio)
-print(include_postgres)
-
 if include_minio != "yes":
     remove(os.path.join(PROJECT_DIR, "minio"))
 

@@ -21,6 +21,6 @@
     ports:
       - ${PG_ADMIN_PORTS}
     volumes: 
-      - vol:/var/lib/pgadmin
+      - volume_db:/var/lib/pgadmin
     networks: 
       - netw

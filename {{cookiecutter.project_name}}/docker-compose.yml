@@ -18,10 +18,18 @@ services:
 {% endif %}
 
 
-networks: 
+networks: #default network
   netw:
     name: ${network}
 
-volumes: 
+volumes: #default vlume
   vol:
     name: ${volume}
+{% if cookiecutter.include_minio == "yes" %}
+  volume_minio: #postgres volume
+    name: ${minio_volume}
+{% endif %}
+{% if cookiecutter.include_postgres == "yes" %}
+  volume_db: #postgres volume
+    name: ${postgres_volume}
+{% endif %}

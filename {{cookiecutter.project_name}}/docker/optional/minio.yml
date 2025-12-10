@@ -11,6 +11,6 @@
       - ${minio_port1}
       - ${minio_port2}
     volumes:
-      - vol:/data
+      - volume_minio:/data
     networks: 
       - netw
