@@ -1,18 +1,16 @@
-from postgres_lib import db
+from src.postgres.postgres_lib import db
 
-
-##exemple
-def get_users_db(cursor, _):
-    cursor.execute("""
-        SELECT * FROM users;
-                    """)
-    return fetch_as_dicts(cursor)
-
-
+#exemple query to fetch users table
+# @db
+# def get_users_db(cursor, _):
+#     cursor.execute("""
+#         SELECT * FROM users;
+#                     """)
+#     return fetch_as_dicts(cursor)
 
 def fetch_as_scalar(cursor):
-    # TODO() ouha comme en java
-    pass
+    value = cursor.fetch_one()
+    return value
 
 def fetch_as_dicts(cursor):
     columns = [desc.name for desc in cursor.description]

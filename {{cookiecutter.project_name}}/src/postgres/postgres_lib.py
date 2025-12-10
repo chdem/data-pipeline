@@ -1,12 +1,12 @@
 import psycopg
-from postgres_pool import *
+from src.postgres.postgres_pool import *
 
 
-def db_execute(postgres_pool: PostgresPool, fn: function, *args)-> psycopg.Cursor:
+def db_execute(fn, *args)-> psycopg.Cursor:
     try:
-        with postgres_pool.pool.connection() as conn:
+        with PostgresPool.get_conn() as conn:
             with conn.cursor() as cursor:
-                return function(cursor, *args)
+                return fn(cursor, *args)
     except psycopg.errors.SyntaxError as e:
         print("error sql", e)
     except psycopg.errors.UniqueViolation as e:

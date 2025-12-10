@@ -7,6 +7,7 @@
       POSTGRES_DB: ${POSTGRES_DB}
     volumes: 
       - vol:/var/lib/postgresql
+      - ./src/postgres/scripts:/docker-entrypoint-initdb.d
     ports:
       - ${POSTGRES_PORTS}
     networks: 
