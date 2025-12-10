@@ -1,5 +1,3 @@
-services:
-
   minio:
     image: minio/minio:latest
     container_name: ${minio_container_name}
@@ -13,14 +11,6 @@ services:
       - ${minio_port1}
       - ${minio_port2}
     volumes:
-      - vol:/data
+      - volume_minio:/data
     networks: 
       - netw
-
-networks: 
-  netw:
-    name: ${network}
-
-volumes: 
-  vol:
-    name: ${volume}

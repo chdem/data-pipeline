@@ -1,0 +1,5 @@
+{
+  "project_name": "etl_project",
+  "include_minio": ["yes", "no"],
+  "include_postgres": ["yes", "no"]
+}
