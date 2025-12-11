@@ -1,43 +1,34 @@
-# Python project generator with cookiecutter
-
-This project has for purpose to generate a python project according to several needs.
-
-You can add needed modules in the project.
-
-Right now, only minio and postgres modules are dynamically available.
+# Modular python project
 
 ## Prerequisites
 
     - python 3
-    - cookiecutter lib
     - docker
 
-## Options available in project
+## launch
+    - update .env file
+    - docker compose up -d
 
-In the project you can define some values or add some modules :
+## Modules
+{% if cookiecutter.include_minio == "yes" %}
+### Minio
+Non structured storage client very similar to amazon S3 buckets.
+[Minio gui guide](https://blog.min.io/great-gui/)
+{% endif %}
+{% if cookiecutter.include_postgres == "yes" %}
+### Postgres
 
-1. **Project name**  
-   - Allows you to choose project name (by default il will be `etl_project`).
+At first launch, every sql files in directory /src/postgres/scripts will be played by the potgres SGBD.
 
-2. **Minio module (optional)**  
-   - Add Minio module on separate docker volume.
+Postgres and Pgadmin share the same volume.
 
-3. **PostgreSQL Module (optional)**  
-   - Add postgres module for data persistence including a dockerized pg_admin client. Postgres and pg_admin share same volume.
-
-## Generating
-
-From the template locally :
-
+You can use command line to connect postgres :
 ```bash
-cookiecutter path/to/my_cookie_cutter template
+docker exec -it templ_postgres sh 
+psql -U bob templ_test #then use standard sql commands
 ```
 
-From the remote github repository :
+or you can use Pgadmin4 gui :
 
-```bash
-cookiecutter https://github.com/chdem/data-pipeline.git (optional --checkout target/branch)
-```
-![No picture finally](doc/choose.png)
-
-#### A new folder with the chosen name will be created in your current cli dir. Follow the generated README.me in the new folder to setup the generated project.
+[Pg_admin Gui guide](https://www.pgadmin.org/docs/pgadmin4/development/connect_to_server.html)
+{% endif %}
