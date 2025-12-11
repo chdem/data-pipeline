@@ -12,9 +12,9 @@ Right now, only minio and postgres modules are dynamically available.
     - cookiecutter lib
     - docker
 
-## Creation of project
+## Options available in project
 
-At creation you can generate :
+In the project you can define some values or add some modules :
 
 1. **Project name**  
    - Allows you to choose project name (by default il will be `etl_project`).
@@ -36,8 +36,8 @@ cookiecutter path/to/my_cookie_cutter template
 From the remote github repository :
 
 ```bash
-cookiecutter https://github.com/chdem/data-pipeline.git --checkout target/branch (currently choose chore/cookie-cutter)
+cookiecutter https://github.com/chdem/data-pipeline.git (optional --checkout target/branch)
 ```
 ![No picture finally](doc/choose.png)
 
-#### A new folder with the chosen name will be created in your current cli dir. Follow the generated README.me to setup the generated project.
+#### A new folder with the chosen name will be created in your current cli dir. Follow the generated README.me in the new folder to setup the generated project.
