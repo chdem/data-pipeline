@@ -24,7 +24,6 @@ if include_postgres != "yes":
 
 #remove les machins inutiles une fois le projet généré
 remove(os.path.join(PROJECT_DIR, "docker")) # TODO à mettre juste à la racine du cookiecutter ??
-remove(os.path.join(PROJECT_DIR, "doc")) 
 
 #on renomme le GENERATE_README en README.md
 rename(os.path.join(PROJECT_DIR, ".env.exemple"), os.path.join(PROJECT_DIR, ".env"))
